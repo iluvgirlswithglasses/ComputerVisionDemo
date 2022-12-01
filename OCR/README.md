@@ -21,4 +21,18 @@ Convolution là phép toán thường được dùng trên *2 mảng k-chiều*,
 - $M_{f(n, x)}$ là các điểm lân cận $M_{x}$, có [Khoảng Cách Manhattan](https://vi.wikipedia.org/wiki/Kho%E1%BA%A3ng_c%C3%A1ch_Manhattan) với $M_{x}$ bé hơn hoặc bằng $n$ đơn vị.
 - $F, G$ và $H$ là *3 mảng k-chiều*, trong đó, kích thước của $|G| = n^k$
 
-Ta có giá trị của $H_{x}$ trong phép toán $H = F \ast G$ bằng $\sum(F_{f(n, x)} \times G_{f(n, x)})$
+Ta có giá trị của $H_{x}$ trong phép toán $H = F \ast G$ bằng:
+
+$$\sum(F_{f(n, x)} \times G_{f(n, x)})$$
+
+Lấy ví dụ, phép toán $a \ast b$ giữa $a = {1, 2, 3}$ và $b = {6, 5, 4}$ được tính như sau:
+
+[o1.webm](https://user-images.githubusercontent.com/58514512/205090479-5c47d1a2-d939-467f-a135-06b2c87e41bd.webm)
+
+\- Nguồn: [3Blue1Brown](https://www.youtube.com/watch?v=KuXjwB4LzSA)
+
+Ta áp dụng tương tự với một mảng có độ dài lớn hơn:
+
+[o.webm](https://user-images.githubusercontent.com/58514512/205090748-dd941980-2479-4ce4-8fd1-de183633d7b4.webm)
+
+\- Nguồn: [3Blue1Brown](https://www.youtube.com/watch?v=KuXjwB4LzSA)
