@@ -43,6 +43,14 @@ Ta áp dụng tương tự với 2 mảng có độ dài lớn hơn:
 
 #### 2.0.2. Khái quát hóa
 
-2 ví dụ trên là minh họa cho phép toán $H = F \ast G$, với $H, F, G$ là *3 mảng 1 chiều*. Giả sử ta gọi $k = \lfloor |H| \div 2 \rfloor$ và cắt lấy phần giữa của mảng $H$ ra thành mảng $I$ sao cho $I = H\[ k : |H| - k \]$, ta có:
+2 ví dụ trên là minh họa cho phép toán $H = F \ast G$, với $H, F, G$ là *3 mảng 1 chiều*. Giả sử ta gọi:
+
+$$k = \lfloor |H| \div 2 \rfloor$$ 
+
+và cắt lấy phần giữa của mảng $H$ ra thành mảng $I$ sao cho: 
+
+$$I = H\[ k : |H| - k \]$$
+
+ta có:
 
 $$I_{x} = \sum_{i=x-k}^{i=x+k}(F_{i} * G_{i})$$
