@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+using ComputerVisionDemo.Convolution;
+using Emgu.CV;
+using Emgu.CV.Structure;
+
+const string IMG_DIR = "D:\\r\\repos\\ComputerVisionDemo\\sample-images\\";
+
+Image<Gray, byte> src = new(IMG_DIR + "avatar.jpg");
+Image<Bgr, byte> des = SobelOperator.VisualApply(src, SobelOperator.X_KERNEL);
+CvInvoke.Imwrite(IMG_DIR + "avatar-visualedge.png", des);
