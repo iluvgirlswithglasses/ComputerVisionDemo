@@ -67,4 +67,16 @@ Bằng việc tính tổng có trọng số của các điểm lân cận trong 
 
 # 2. Edge Detection
 
+Các chữ cái trong một văn bản thường được viết rõ nét. Bằng việc sử dụng Convolution với một kernel có cấu trúc như sau:
 
+
+| -1 | 0  | +1 |
+| -- | -- | -- |
+| -2 | 0  | +2 |
+| -1 | 0  | +1 |
+
+Ta có thể lấy "nét" của những chữ cái ấy, mà thực chất là những sự biến thiên màu sắc đột ngột. Kết quả như sau:
+
+Source                     | Edge Detection             | Visualization
+:-------------------------:|:-------------------------: | :-------------------------:
+![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-src.jpg) | ![des](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-des.png) | ![visual](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-visual.png)
