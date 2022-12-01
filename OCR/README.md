@@ -15,6 +15,8 @@ Tính đến nay, người ta đã nghiên cứu ra rất nhiều cách để đ
 
 Trước khi nói về thuật toán, ta đến với một phép toán sẽ được đề cập rất nhiều trong bài viết này - **Convolution**
 
+#### 2.0.0. Hình dung
+
 Convolution là phép toán thường được dùng trên *2 mảng k-chiều*, được ký hiệu bởi dấu $\ast$. Nói đại khái, gọi:
 
 - $M_{x}$ là một điểm trong *không gian k-chiều* của mảng $M$
@@ -25,14 +27,22 @@ Ta có giá trị của $H_{x}$ trong phép toán $H = F \ast G$ bằng:
 
 $$\sum(F_{f(n, x)} \times G_{f(n, x)})$$
 
-Lấy ví dụ, phép toán $a \ast b$ giữa $a = {1, 2, 3}$ và $b = {6, 5, 4}$ được tính như sau:
+#### 2.0.1. Video ví dụ
+
+Lấy ví dụ, phép toán $a \ast b$ giữa $a = \{1, 2, 3\}$ và $b = \{6, 5, 4\}$ được tính như sau:
 
 [o1.webm](https://user-images.githubusercontent.com/58514512/205090479-5c47d1a2-d939-467f-a135-06b2c87e41bd.webm)
 
 \- Nguồn: [3Blue1Brown](https://www.youtube.com/watch?v=KuXjwB4LzSA)
 
-Ta áp dụng tương tự với một mảng có độ dài lớn hơn:
+Ta áp dụng tương tự với 2 mảng có độ dài lớn hơn:
 
 [o.webm](https://user-images.githubusercontent.com/58514512/205090748-dd941980-2479-4ce4-8fd1-de183633d7b4.webm)
 
 \- Nguồn: [3Blue1Brown](https://www.youtube.com/watch?v=KuXjwB4LzSA)
+
+#### 2.0.2. Khái quát hóa
+
+2 ví dụ trên là minh họa cho phép toán $H = F \ast G$, với $H, F, G$ là *3 mảng 1 chiều*. Giả sử ta gọi $k = \lfloor |H| \div 2 \rfloor$ và cắt lấy phần giữa của mảng $H$ ra thành mảng $I$ sao cho $I = H\[ k : |H| - k \]$, ta có:
+
+$$I_{x} = \sum_{i=x-k}^{i=x+k}(F_{i} * G_{i})$$
