@@ -1,21 +1,19 @@
 
 *this is my "Introduction to Information and Communication Technology" report*
 
-# 1. OCR là gì
+# 0. Lời nói đầu - OCR
 
 > Nhận dạng ký tự quang học *(tiếng Anh: Optical Character Recognition, viết tắt là OCR)*, là loại phần mềm máy tính được tạo ra để chuyển các hình ảnh của chữ viết tay hoặc chữ đánh máy (thường được quét bằng máy scanner) thành các văn bản tài liệu. OCR được hình thành từ một lĩnh vực nghiên cứu về nhận dạng mẫu, trí tuệ nhận tạo và machine vision. Mặc dù công việc nghiên cứu học thuật vẫn tiếp tục, một phần công việc của OCR đã chuyển sang ứng dụng trong thực tế với các kỹ thuật đã được chứng minh.
 
 \- Nguồn: [wikipedia](https://vi.wikipedia.org/wiki/Nh%E1%BA%ADn_d%E1%BA%A1ng_k%C3%BD_t%E1%BB%B1_quang_h%E1%BB%8Dc)
 
-# 2. Thuật toán để triển khai OCR
-
 Tính đến nay, người ta đã nghiên cứu ra rất nhiều cách để để phát triển một chương trình OCR. Nhóm **Flaming Watermelon** chúng em đã nghiên cứu được một cách được nhiều phần mềm OCR tin dùng. Trong bài viết này, chúng em sẽ trình bày đại khái ý tưởng của cách làm ấy.
 
-## 2.0. Convolution
+# 1. Convolution
 
 Trước khi nói về thuật toán, ta đến với một phép toán sẽ được đề cập rất nhiều trong bài viết này - **Convolution**
 
-### 2.0.0. Hình dung
+## 1.0. Hình dung
 
 Convolution là phép toán thường được dùng trên *2 mảng k-chiều*, được ký hiệu bởi dấu $\ast$. Nói đại khái, gọi:
 
@@ -27,7 +25,7 @@ Ta có giá trị của $H_{x}$ trong phép toán $H = F \ast G$ bằng:
 
 $$\sum(F_{f(n, x)} \times G_{f(n, x)})$$
 
-### 2.0.1. Video ví dụ
+## 1.1. Video ví dụ
 
 Lấy ví dụ, phép toán $a \ast b$ giữa $a = \{1, 2, 3\}$ và $b = \{6, 5, 4\}$ được tính như sau:
 
@@ -41,7 +39,7 @@ Ta áp dụng tương tự với 2 mảng có độ dài lớn hơn:
 
 \- Nguồn: [3Blue1Brown](https://www.youtube.com/watch?v=KuXjwB4LzSA)
 
-### 2.0.2. Khái quát hóa
+## 1.2. Khái quát hóa
 
 2 ví dụ trên là minh họa cho phép toán $H = F \ast G$ (với $H, F, G$ là *3 mảng 1 chiều*). Ta có:
 
@@ -55,8 +53,18 @@ Minh họa với $|F| = 6 \times 6$ và $|G| = 3 \times 3$:
 
 ![wikipedia](https://upload.wikimedia.org/wikipedia/commons/1/19/2D_Convolution_Animation.gif)
 
-Trong Computer Vision, vai trò của $H, F, G$ như trên lần lượt được gọi là:
+Trong Computer Vision, vai trò của $H, F, G$ trong phép toán $H = F \ast G$ lần lượt được gọi là:
 
 - Mảng đích
 - Mảng nguồn
 - Kernel
+
+## 1.3. Ý nghĩa của Convolution
+
+Bằng việc tính tổng có trọng số của các điểm lân cận trong không gian, Convolution cho phép chúng ta biết được tính chất của một khu vực trong một bức ảnh kỹ thuật số (vốn là một mảng 2 chiều), đồng thời triển khai những phép biến đổi trên nó. 
+
+Ứng dụng phổ biến nhất của Convolution có thể kể đến là Blur ảnh (làm mờ ảnh bằng cách loang các pixel lại với nhau). Trong thị giác máy tính, Convolution có vô số công dụng, trong đó bao gồm phát hiện độ biến thiên màu sắc (tính gradient), và phát hiện cạnh (Edge Detection).
+
+# 2. Edge Detection
+
+
