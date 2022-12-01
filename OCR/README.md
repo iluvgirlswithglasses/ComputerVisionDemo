@@ -15,7 +15,7 @@ Tính đến nay, người ta đã nghiên cứu ra rất nhiều cách để đ
 
 Trước khi nói về thuật toán, ta đến với một phép toán sẽ được đề cập rất nhiều trong bài viết này - **Convolution**
 
-#### 2.0.0. Hình dung
+### 2.0.0. Hình dung
 
 Convolution là phép toán thường được dùng trên *2 mảng k-chiều*, được ký hiệu bởi dấu $\ast$. Nói đại khái, gọi:
 
@@ -27,7 +27,7 @@ Ta có giá trị của $H_{x}$ trong phép toán $H = F \ast G$ bằng:
 
 $$\sum(F_{f(n, x)} \times G_{f(n, x)})$$
 
-#### 2.0.1. Video ví dụ
+### 2.0.1. Video ví dụ
 
 Lấy ví dụ, phép toán $a \ast b$ giữa $a = \{1, 2, 3\}$ và $b = \{6, 5, 4\}$ được tính như sau:
 
@@ -41,11 +41,11 @@ Ta áp dụng tương tự với 2 mảng có độ dài lớn hơn:
 
 \- Nguồn: [3Blue1Brown](https://www.youtube.com/watch?v=KuXjwB4LzSA)
 
-#### 2.0.2. Khái quát hóa
+### 2.0.2. Khái quát hóa
 
-2 ví dụ trên là minh họa cho phép toán $H = F \ast G$, với $H, F, G$ là *3 mảng 1 chiều*. Giả sử ta gọi:
+2 ví dụ trên là minh họa cho phép toán $H = F \ast G$ (với $H, F, G$ là *3 mảng 1 chiều*). Giả sử ta gọi:
 
-$$k = \lfloor |H| \div 2 \rfloor$$ 
+$$k = \lfloor |G| \div 2 \rfloor$$ 
 
 và cắt lấy phần giữa của mảng $H$ ra thành mảng $I$ sao cho: 
 
@@ -54,3 +54,7 @@ $$I = H\[ k : |H| - k \]$$
 ta có:
 
 $$I_{x} = \sum_{i=x-k}^{i=x+k}(F_{i} * G_{i})$$
+
+Tương tự, giá trị của $I_{yx}$ trong phép tính $H = F \ast G$ (với $I, H, F, G$ là *4 mảng 2 chiều* có cùng vai trò như trên) được tín như sau:
+
+$$I_{yx} = \sum_{i=y-k}^{i=y+k}\sum_{j=x-k}^{j=x+k}(F_{ij} \times G_{ij})$$
