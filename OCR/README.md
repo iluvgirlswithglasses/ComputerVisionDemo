@@ -65,7 +65,9 @@ Bằng việc tính tổng có trọng số của các điểm lân cận trong 
 
 Ứng dụng phổ biến nhất của Convolution có thể kể đến là Blur ảnh (làm mờ ảnh bằng cách loang các pixel lại với nhau). Trong thị giác máy tính, Convolution có vô số công dụng, trong đó bao gồm phát hiện độ biến thiên màu sắc (tính gradient), và phát hiện cạnh (Edge Detection).
 
-# 2. Edge Detection
+# 2. Sobel Operator
+
+## 2.0. Ứng dụng cơ bản của Sobel Operator
 
 Các chữ cái trong một văn bản thường được viết rõ nét. Bằng việc sử dụng Convolution với một kernel có cấu trúc như sau:
 
@@ -80,3 +82,15 @@ Ta có thể lấy "nét" của những chữ cái ấy, mà thực chất là n
 Source                     | Edge Detection             | Visualization
 :-------------------------:|:-------------------------: | :-------------------------:
 ![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-src.jpg) | ![des](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-des.png) | ![visual](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-visual.png)
+
+## 2.1. Using Sobel Operator for Segmentation (not finished)
+
+Khi xử lý một hình ảnh chụp văn bản, khu vực văn bản trong bức ảnh ấy sẽ có nhiều sự biến thiên hơn so với các khu vực còn lại. Dựa vào điều này, ta có thể phân vùng bức ảnh, cắt bức ảnh sao cho chỉ còn lại những thông tin cần thiết, và tiến vào những bước xử lý tiếp theo.
+
+## 2.2. Using Sobel Operator to extract Color Orientation (not finished)
+
+Kernel được sử dụng trong phần **2.0** sẽ phát hiện sự biến thiên màu sắc theo chiều $Ox$. Nếu ta xoay nó một góc 90 độ, ta sẽ được một Kernel phát hiện sự biến thiên màu sắc theo chiều $Oy$.
+
+Như vậy, tại một điểm $(i, j)$ trong ma trận, ta sẽ tính được 2 vector $\overrightarrow{Gx}, \overrightarrow{Gy}$ lần lượt là độ biến thiên màu sắc theo chiều $Ox$ và $Oy$ tại điểm đó. Sau đó, ta tính được $\theta = \tan^{-1}\dfrac{|\overrightarrow{Gx}|}{|\overrightarrow{Gy}|}$ là góc biến thiên.
+
+Có được góc biến thiên $\theta$ đồng nghĩa với việc có thêm dữ liệu để dựng lại các chữ cái bằng tổng các vector. Máy tính không thể dễ dàng nhận diện chữ cái từ bitmap, nhưng có thể dễ dàng nhận diện chúng dưới dạng vector. File *.pdf* thực chất cũng chỉ là tổng các vector, song máy tính vẫn có thể dễ dàng thêm/sửa/xóa/tìm kiếm nội dung trên file pdf.
