@@ -53,6 +53,8 @@ Minh họa với $|F| = 6 \times 6$ và $|G| = 3 \times 3$:
 
 ![wikipedia](https://upload.wikimedia.org/wikipedia/commons/1/19/2D_Convolution_Animation.gif)
 
+\- Nguồn ảnh: [wikipedia](https://upload.wikimedia.org/wikipedia/commons/1/19/2D_Convolution_Animation.gif)
+
 Trong Computer Vision, vai trò của $H, F, G$ trong phép toán $H = F \ast G$ lần lượt được gọi là:
 
 - Mảng đích
@@ -154,6 +156,8 @@ Trong đó,
 - $c_{y}, c_{x}$ là trọng tâm của phép biến đổi
 - $K_{n}, P_{n}$ lần lượt là hệ số *radial distortion* và *tangential distortion*, được định nghĩa trong [bài viết này](https://ori.codes/artificial-intelligence/camera-calibration/camera-distortions/).
 - $r = \sqrt{(x - c_{x})^2 + (y - c_{y})^2}$
+
+Một lần nữa, ta có thể trích xuất các giá trị $K_{n}, P_{n}$ từ ma trận $Orient$ đã tính từ trước bằng các kỹ thuật **data mining**.
 
 # 4. Dựng lại các chữ cái
 
