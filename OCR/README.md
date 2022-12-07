@@ -105,7 +105,7 @@ Ta cắt ảnh *Sobel Operator* ở bảng trên ra thành nhiều khối vuông
 
 Với mỗi khối $K$, ta có $K_{ij}$ là độ sáng ở hàng $i$ cột $j$ của K, và $a_{K}$ là trung bình độ sáng của các pixel trong $K$. Gọi:
 
-$$S = \sqrt{ \dfrac{ \sum_{i=0}^{i=N-1}\sum_{j=0}^{j=N-1}((K_{ij} - a_{K})^2) }{N \times N} }$$
+$$S = \sqrt{ \dfrac{ \sum((K_{ij} - a_{K})^2) }{N \times N} }$$
 
 Ta thấy: Nếu một ô vuông có giá trị $S$ lớn thì ô đó có sự biến thiên màu sắc mạnh mẽ, đồng nghĩa với việc có nhiều chữ cái tại ô đó. Ngược lại, ô đó là nền. Ta thử áp dụng công thức tính $S$ lên 3 khối sau:
 
