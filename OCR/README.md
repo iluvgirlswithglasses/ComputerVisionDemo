@@ -153,6 +153,7 @@ Trong đó,
 - $y', x'$ là vị trí của pixel ban đầu sau phép biến đổi
 - $c_{y}, c_{x}$ là trọng tâm của phép biến đổi
 - $K_{n}, P_{n}$ lần lượt là hệ số *radial distortion* và *tangential distortion*, được định nghĩa trong [bài viết này](https://ori.codes/artificial-intelligence/camera-calibration/camera-distortions/).
+- $r = \sqrt{(x - c_{x})^2 + (y - c_{y})^2}$
 
 # 4. Dựng lại các chữ cái
 
@@ -170,4 +171,8 @@ Sau khi dựng, ta được một ảnh nhị phân. Những vị trí được 
 
 ## 3.1. Skeletonization
 
-Để g
+Ta có thể tiếp tục đơn giản hóa các chữ cái bằng cách lấy khung của nó như sau:
+
+> insert skeleton image here
+
+Với bấy nhiêu đây dữ liệu, ta có thể dễ dàng nhận diện chữ cái *insert abc xyz anything here*
