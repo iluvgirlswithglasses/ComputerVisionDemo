@@ -115,6 +115,8 @@ Block 0                    | Block 1                    | Block 2
 
 Sau khi tính $S$, ta có được $S$ của *Block 0* là lớn nhất, rồi đến *Block 1*, rồi bé nhất là *Block 2*.
 
+Để có được những block ít nhiễu hơn 3 block ví dụ, ta có thể lần lượt sử dụng [Erosion](https://homepages.inf.ed.ac.uk/rbf/HIPR2/erode.htm) rồi đến [Dilation](https://homepages.inf.ed.ac.uk/rbf/HIPR2/dilate.htm) trên ảnh *Sobel Operator* ban đầu rồi hẵn cắt ra thành các block.
+
 ## 2.2. Vector hóa - Phần 1: Lấy góc của Vector
 
 Kernel được sử dụng trong phần **2.0** sẽ phát hiện sự biến thiên màu sắc theo chiều $Ox$. Nếu ta xoay nó một góc 90 độ, ta sẽ được một Kernel phát hiện sự biến thiên màu sắc theo chiều $Oy$.
