@@ -99,7 +99,7 @@ Source                     | Sobel Operator             | Segmentation
 :-------------------------:|:-------------------------: | :-------------------------:
 ![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/segment-src.png) | ![des](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/segment-sobel.png) | ![visual](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/segment-des.png)
 
-Ta có nhiều cách để biết được vùng nào là văn bản, vùng nào là nền nhằm tiến hành phân vùng như trên. Riêng đối với bài viết này, tác giả sử dụng [Normalization](https://en.wikipedia.org/wiki/Normalization_(statistics) như sau:
+Ta có nhiều cách để biết được vùng nào là văn bản, vùng nào là nền nhằm tiến hành phân vùng như trên. Riêng đối với bài viết này, tác giả sử dụng [Normalization](https://en.wikipedia.org/wiki/Normalization_(statistics)) như sau:
 
 Ta cắt ảnh *Sobel Operator* ở bảng trên ra thành nhiều khối vuông nhỏ, mỗi khối có kích thước $N \times N$.
 
