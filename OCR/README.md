@@ -131,8 +131,14 @@ Lưu ý: Gọi $h, w$ lần lượt là chiều cao và chiều dài của ảnh
 
 $$h' = w\sin(\alpha) + h\cos(\alpha)$$
 
-$$x' = w\cos(\alpha) + h\sin(\alpha)$$
+$$w' = w\cos(\alpha) + h\sin(\alpha)$$
 
 Ta hình dung bằng hình sau:
 
 > insert another image here
+
+Vậy, nếu văn bản ban đầu bị nghiêng một góc $\theta$, ta xoay ảnh một góc $-\theta$ và tiến đến bước tiếp theo.
+
+# 4. Tìm kích thước font chữ
+
+Vì văn bản lúc này đã không bị nghiêng nữa, ta có thể cắt từng dòng ra rồi xử lý chúng riêng biệt với nhau.
