@@ -109,7 +109,7 @@ Gọi $M$ là ma trận biểu diễn ảnh ban đầu và $Orient$ là ma trậ
 
 $$Orient_{ij} = \theta_{M_{ij}}$$
 
-Ta sẽ nhận được một số giá trị $\theta$ lặp lại rất nhiều lần. Trong hình ví dụ, ta có một số vị trí có giá trị $\theta$ gần giống nhau như sau:
+Bằng việc áp dụng các kỹ thuật [data mining](https://en.wikipedia.org/wiki/Data_mining), ta có thể rút ra một số quy luật giữa các góc $\theta$ với nhau. Trong hình ví dụ, ta có một số vị trí có giá trị $\theta$ gần giống nhau như sau:
 
 > insert image here
 
