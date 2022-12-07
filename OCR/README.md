@@ -147,6 +147,13 @@ $$y' = y + (y - c_{y})(K_{1}r^2 + K_{2}r^4 + ...) + (2P_{1}(x - c_{x})(y - c_{y}
 
 $$x' = x + (x - c_{x})(K_{1}r^2 + K_{2}r^4 + ...) + (P_{1}(r^2 + 2(x - c_{x})^2) + 2P_{2}(x - c_{x})(y - c_{y}))(1 + P_{3}r^2 + P_{4}r^4)$$
 
+Trong đó,
+
+- $y, x$ là vị trí ban đầu của pixel
+- $y', x'$ là vị trí của pixel ban đầu sau phép biến đổi
+- $c_{y}, c_{x}$ là trọng tâm của phép biến đổi
+- $K_{n}, P_{n}$ lần lượt là hệ số *radial distortion* và *tangential distortion*, được định nghĩa trong [bài viết này](https://ori.codes/artificial-intelligence/camera-calibration/camera-distortions/).
+
 # 4. Dựng lại các chữ cái
 
 ## 3.0. Binary Effect
