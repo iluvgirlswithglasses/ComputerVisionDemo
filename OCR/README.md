@@ -145,6 +145,8 @@ Sau khi xoay ảnh, văn bản vẫn có thể bị cong. Ta cũng có thể kh�
 
 $$y' = y + (y - c_{y})(K_{1}r^2 + K_{2}r^4 + ...) + (2P_{1}(x - c_{x})(y - c_{y}) + P_{2}(r^2 + 2(y - c_{y})^2))(1 + P_{3}r^2 + P_{4}r^4)$$
 
+$$x' = x + (x - c_{x})(K_{1}r^2 + K_{2}r^4 + ...) + (P_{1}(r^2 + 2(x - c_{x})^2) + 2P_{2}(x - c_{x})(y - c_{y}))(1 + P_{3}r^2 + P_{4}r^4)$$
+
 # 4. Dựng lại các chữ cái
 
 ## 3.0. Binary Effect
