@@ -209,7 +209,7 @@ Với mỗi dòng, ta thực hiện Edge Detection đã được đề cập ở
 
 Source                     | Edge Detection             | Unify
 :-------------------------:|:-------------------------: | :-------------------------:
-![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-0.png) | ![ox-grad](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-1.png) | ![oy-grad](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-2.png)
+![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-0.png) | ![sobel](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-1.png) | ![unify](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-2.png)
 
 Cách dựng thông qua Edge Detection tốt hơn cách dựng trực tiếp từ ảnh ban đầu, vì nó không bị phụ thuộc bởi màu sắc của nền hay chữ, cũng không bị ảnh hưởng nếu màu chữ không đều.
 

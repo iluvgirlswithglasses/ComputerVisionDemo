@@ -20,9 +20,17 @@ namespace ComputerVisionDemo.Convolution {
 
         public static Image<Gray, byte> Apply(Image<Gray, byte> src, double[,] kernel) {
             Image<Gray, byte> res = new(src.Size);
-            int k = kernel.GetLength(0) >> 1;
-            ImgTool<Gray, byte>.Forward(src, k, k, src.Height - k, src.Width - k, (y, x) => {
-                res[y, x] = new Gray(ConvolutionCalc.Calc(src, kernel, y, x));
+            Forward(src, kernel, (y, x, w) => {
+                res[y, x] = new Gray(w);
+                return true;
+            });
+            return res;
+        }
+
+        public static Image<Gray, byte> AbsApply(Image<Gray, byte> src, double[,] kernel) { 
+            Image<Gray, byte> res = new(src.Size);
+            Forward(src, kernel, (y, x, w) => {
+                res[y, x] = new Gray(Math.Abs(w));
                 return true;
             });
             return res;
@@ -32,9 +40,7 @@ namespace ComputerVisionDemo.Convolution {
         // while positive cells are displayed as blue
         public static Image<Bgr, byte> VisualApply(Image<Gray, byte> src, double[,] kernel) {
             Image<Bgr, byte> res = new(src.Size);
-            int k = kernel.GetLength(0) >> 1;
-            ImgTool<Gray, byte>.Forward(src, k, k, src.Height - k, src.Width - k, (y, x) => {
-                double w = ConvolutionCalc.Calc(src, kernel, y, x);
+            Forward(src, kernel, (y, x, w) => {
                 if (w < 0)
                     res[y, x] = new Bgr(-w, 0, -w);
                 else
@@ -42,6 +48,13 @@ namespace ComputerVisionDemo.Convolution {
                 return true;
             });
             return res;
+        }
+
+        private static void Forward(Image<Gray, byte> src, double[,] kernel, Func<int, int, double, bool> f) {
+            int k = kernel.GetLength(0) >> 1;
+            ImgTool<Gray, byte>.Forward(src, k, k, src.Height - k, src.Width - k, (y, x) => {
+                return f(y, x, ConvolutionCalc.Calc(src, kernel, y, x));
+            });
         }
     }
 }
