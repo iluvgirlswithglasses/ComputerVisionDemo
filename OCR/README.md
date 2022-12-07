@@ -95,6 +95,26 @@ Source                     | Edge Detection             | Visualization
 
 Khi xử lý một hình ảnh chụp văn bản, khu vực văn bản trong bức ảnh ấy sẽ có nhiều sự biến thiên hơn so với các khu vực còn lại. Dựa vào điều này, ta có thể phân vùng bức ảnh, cắt bức ảnh sao cho chỉ còn lại những thông tin cần thiết, và tiến vào những bước xử lý tiếp theo.
 
+Source                     | Sobel Operator             | Segmentation
+:-------------------------:|:-------------------------: | :-------------------------:
+![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/segment-src.png) | ![des](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/segment-sobel.png) | ![visual](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/segment-des.png)
+
+Ta có nhiều cách để biết được vùng nào là văn bản, vùng nào là nền nhằm tiến hành phân vùng như trên. Riêng đối với bài viết này, tác giả sử dụng [Normalization](https://en.wikipedia.org/wiki/Normalization_(statistics) như sau:
+
+Ta cắt ảnh *Sobel Operator* ở bảng trên ra thành nhiều khối vuông nhỏ, mỗi khối có kích thước $N \times N$.
+
+Với mỗi khối $K$, ta có $K_{ij}$ là độ sáng ở hàng $i$ cột $j$ của K, và $a_{K}$ là trung bình độ sáng của các pixel trong $K$. Gọi:
+
+$$S = \sqrt{ \dfrac{ \sum_{i=0}^{i=N-1}\sum_{j=0}^{j=N-1}((K_{ij} - a_{K})^2) }{N \times N} }$$
+
+Ta thấy: Nếu một ô vuông có giá trị $S$ lớn thì ô đó có sự biến thiên màu sắc mạnh mẽ, đồng nghĩa với việc có nhiều chữ cái tại ô đó. Ngược lại, ô đó là nền. Ta thử áp dụng công thức tính $S$ lên 3 khối sau:
+
+Block 0                    | Block 1                    | Block 2
+:-------------------------:|:-------------------------: | :-------------------------:
+![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/norm-0.png) | ![des](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/norm-1.png) | ![visual](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/norm-2.png)
+
+Sau khi tính $S$, ta có được $S$ của *Block 0* là lớn nhất, rồi đến *Block 1*, rồi bé nhất là *Block 2*.
+
 ## 2.2. Vector hóa - Phần 1: Lấy góc của Vector
 
 Kernel được sử dụng trong phần **2.0** sẽ phát hiện sự biến thiên màu sắc theo chiều $Ox$. Nếu ta xoay nó một góc 90 độ, ta sẽ được một Kernel phát hiện sự biến thiên màu sắc theo chiều $Oy$.
