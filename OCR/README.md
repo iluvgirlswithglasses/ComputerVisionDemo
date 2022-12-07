@@ -122,6 +122,7 @@ Tất nhiên, cách làm này có thể sẽ không hiệu quả đối với m�
 Lấy trọng tâm của ảnh $M$ làm gốc tọa độ $O$, điểm $(y, x)$ là điểm có giá trị $Oy = y$, $Ox = x$ trong hệ trục tọa độ $Oxy$. Khi ta xoay ảnh $M$ một góc $\alpha$ quanh $O$, thì một điểm $(y, x)$ trong ảnh sẽ dịch chuyển đến vị trí mới $(y', x')$ được tính như sau:
 
 $$y' = x\sin(\alpha) + y\cos(\alpha)$$
+
 $$x' = x\cos(\alpha) - y\sin(\alpha)$$
 
 Áp dụng phép tính ấy trên mọi điểm trong ảnh $M$, ta xoay được ảnh $M$ một góc $\alpha$.
@@ -129,6 +130,7 @@ $$x' = x\cos(\alpha) - y\sin(\alpha)$$
 Lưu ý: Gọi $h, w$ lần lượt là chiều cao và chiều dài của ảnh $M$ ban đầu, ta có kích thước của ảnh sau khi xoay một góc $\alpha$ là:
 
 $$h' = w\sin(\alpha) + h\cos(\alpha)$$
+
 $$x' = w\cos(\alpha) + h\sin(\alpha)$$
 
 Ta hình dung bằng hình sau:
