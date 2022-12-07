@@ -207,7 +207,7 @@ Sau quá trình tiền xử lý kể trên, ta có thể cắt ảnh ban đầu 
 
 Với mỗi dòng, ta thực hiện Edge Detection đã được đề cập ở trên, rồi lại sử dụng những thuật toán phù hợp để lấy mặt chữ (ở đây, tác giả dùng thuật toán BFS, rồi lại dùng Dilation + Erosion Morphology)
 
-Source                     | Edge Detection             | Unify
+Source                     | Edge Detection             | Unified
 :-------------------------:|:-------------------------: | :-------------------------:
 ![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-0.png) | ![sobel](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-1.png) | ![unify](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-2.png)
 
@@ -219,6 +219,8 @@ Sau khi dựng, ta được một ảnh nhị phân. Những vị trí được 
 
 Ta có thể tiếp tục đơn giản hóa các chữ cái bằng cách lấy khung của nó như sau:
 
-> insert skeleton image here
+Unified                     | Skeletonization
+:-------------------------: | :-------------------------:
+![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-3.png) | ![pattern](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-4.png)
 
 Với bấy nhiêu đây dữ liệu, ta có thể dễ dàng nhận diện chữ cái *insert abc xyz anything here*

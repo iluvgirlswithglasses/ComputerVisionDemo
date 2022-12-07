@@ -1,5 +1,6 @@
 ﻿
 using ComputerVisionDemo.Convolution;
+using ComputerVisionDemo.Skeletonization;
 using ComputerVisionDemo.Tool;
 using ComputerVisionDemo.Transform;
 using Emgu.CV;
@@ -7,14 +8,19 @@ using Emgu.CV.Structure;
 
 const string IMG_DIR = "D:\\r\\repos\\ComputerVisionDemo\\sample-images\\";
 
-Image<Gray, byte> src = new(IMG_DIR + "restruct-0.png");
-Image<Gray, byte> imx = SobelOperator.AbsApply(src, SobelOperator.X_KERNEL), 
-                  imy = SobelOperator.AbsApply(src, SobelOperator.Y_KERNEL);
+Image<Gray, byte> src = new(IMG_DIR + "restruct-2.png");
+bool[,] ske = new bool[src.Height, src.Width];
 
-ImgTool<Gray, byte>.Forward(imx, (y, x) => {
-    imx[y, x] = new Gray(Math.Max(imx[y, x].Intensity, imy[y, x].Intensity));
-    if (imx[y, x].Intensity < 175) imx[y, x] = new Gray(0);
+MatTool<bool>.Forward(ske, (y, x) => {
+    return ske[y, x] = src[y, x].Intensity > 200;
+});
+
+new Sket(ske).Apply();
+
+Image<Gray, byte> des = new(src.Size);
+MatTool<bool>.Forward(ske, (y, x) => {
+    if (ske[y, x]) des[y, x] = new Gray(255);
     return true;
 });
 
-CvInvoke.Imwrite(IMG_DIR + "restruct-1.png", imx);
+CvInvoke.Imwrite(IMG_DIR + "restruct-3.png", des);
