@@ -83,6 +83,12 @@ Ta có thể lấy "nét" của những chữ cái ấy, mà thực chất là n
 
 Source                     | Edge Detection             | Visualization
 :-------------------------:|:-------------------------: | :-------------------------:
+![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-src-2.jpg) | ![des](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-des-2.png) | ![visual](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-visual-2.png)
+
+Ta cũng có thể sử dụng kỹ thuật trên cho các loại ảnh khác nhau!
+
+Source                     | Edge Detection             | Visualization
+:-------------------------:|:-------------------------: | :-------------------------:
 ![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-src.jpg) | ![des](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-des.png) | ![visual](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-visual.png)
 
 ## 2.1. Phân vùng
