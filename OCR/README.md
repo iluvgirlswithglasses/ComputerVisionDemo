@@ -41,7 +41,7 @@ Ta áp dụng tương tự với 2 mảng có độ dài lớn hơn:
 
 ## 1.2. Khái quát hóa
 
-2 ví dụ trên là minh họa cho phép toán $H = F \ast G$ (với $H, F, G$ là *3 mảng 1 chiều*). Ta có:
+Hai ví dụ trên là minh họa cho phép toán $H = F \ast G$ (với $H, F, G$ là *3 mảng 1 chiều*). Ta có:
 
 $$H_{x} = \sum_{i=x-k}^{i=x+k}(F_{i} * G_{i})$$
 
@@ -83,14 +83,54 @@ Source                     | Edge Detection             | Visualization
 :-------------------------:|:-------------------------: | :-------------------------:
 ![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-src.jpg) | ![des](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-des.png) | ![visual](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-visual.png)
 
-## 2.1. Using Sobel Operator for Segmentation (not finished)
+## 2.1. Phân vùng
 
 Khi xử lý một hình ảnh chụp văn bản, khu vực văn bản trong bức ảnh ấy sẽ có nhiều sự biến thiên hơn so với các khu vực còn lại. Dựa vào điều này, ta có thể phân vùng bức ảnh, cắt bức ảnh sao cho chỉ còn lại những thông tin cần thiết, và tiến vào những bước xử lý tiếp theo.
 
-## 2.2. Using Sobel Operator to extract Color Orientation (not finished)
+## 2.2. Vector hóa - Phần 1: Lấy góc của Vector
 
 Kernel được sử dụng trong phần **2.0** sẽ phát hiện sự biến thiên màu sắc theo chiều $Ox$. Nếu ta xoay nó một góc 90 độ, ta sẽ được một Kernel phát hiện sự biến thiên màu sắc theo chiều $Oy$.
 
-Như vậy, tại một điểm $(i, j)$ trong ma trận, ta sẽ tính được 2 vector $\overrightarrow{Gx}, \overrightarrow{Gy}$ lần lượt là độ biến thiên màu sắc theo chiều $Ox$ và $Oy$ tại điểm đó. Sau đó, ta tính được $\theta = \tan^{-1}\dfrac{|\overrightarrow{Gx}|}{|\overrightarrow{Gy}|}$ là góc biến thiên.
+Như vậy, tại một điểm $(i, j)$ trong ma trận, ta sẽ tính được 2 vector $\overrightarrow{Gx}, \overrightarrow{Gy}$ lần lượt là độ biến thiên màu sắc theo chiều $Ox$ và $Oy$ tại điểm đó. Sau đó, ta tính được là góc biến thiên tại $(i, j)$ là:
+
+$$\theta = \tan^{-1}\dfrac{|\overrightarrow{Gx}|}{|\overrightarrow{Gy}|}$$
 
 Có được góc biến thiên $\theta$ đồng nghĩa với việc có thêm dữ liệu để dựng lại các chữ cái bằng tổng các vector. Máy tính không thể dễ dàng nhận diện chữ cái từ bitmap, nhưng có thể dễ dàng nhận diện chúng dưới dạng vector. File *.pdf* thực chất cũng chỉ là tổng các vector, song máy tính vẫn có thể dễ dàng thêm/sửa/xóa/tìm kiếm nội dung trên file pdf.
+
+# 3. Xoay ảnh
+
+## 3.0. Nhận diện góc nghiêng
+
+Khi người dùng chụp ảnh đưa vào phần mềm OCR, phần văn bản của bức ảnh có thể bị nghiêng, gây khó khăn trong quá trình xử lý ảnh. Để khắc phục, ta có thể xoay ảnh một cách nhanh chóng và hiệu quả như sẽ được trình bày sắp tới đây.
+
+Gọi $M$ là ma trận biểu diễn ảnh ban đầu và $Orient$ là ma trận có cùng kích thước với $M$, sao cho:
+
+$$Orient_{ij} = \theta_{M_{ij}}$$
+
+Ta sẽ nhận được một số giá trị $\theta$ lặp lại rất nhiều lần. Trong hình ví dụ, ta có một số vị trí có giá trị $\theta$ gần giống nhau như sau:
+
+> insert image here
+
+> insert another image here
+
+Ta có thể coi các giá trị $\theta$ đó là độ nghiêng so với trục hoành hoặc trục tung rồi tiến hành xoay ảnh.
+
+Tất nhiên, cách làm này có thể sẽ không hiệu quả đối với một số loại font chữ. Khi đó, ta có thể sử dụng *advanced sweepline techniques* (thuật toán đường quét) để tìm kiếm độ nghiêng của một hàng bất kỳ, từ đó suy ra độ nghiêng của văn bản. Tuy nhiên, cách làm này sẽ tương đối tốn kém thời gian hơn, chỉ nên được sử dụng nếu cách đầu tiên không hiệu quả.
+
+## 3.1. Affine Transformation
+
+Lấy trọng tâm của ảnh $M$ làm gốc tọa độ $O$, điểm $(y, x)$ là điểm có giá trị $Oy = y$, $Ox = x$ trong hệ trục tọa độ $Oxy$. Khi ta xoay ảnh $M$ một góc $\alpha$ quanh $O$, thì một điểm $(y, x)$ trong ảnh sẽ dịch chuyển đến vị trí mới $(y', x')$ được tính như sau:
+
+$$y' = x\sin(\alpha) + y\cos(\alpha)$$
+$$x' = x\cos(\alpha) - y\sin(\alpha)$$
+
+Áp dụng phép tính ấy trên mọi điểm trong ảnh $M$, ta xoay được ảnh $M$ một góc $\alpha$.
+
+Lưu ý: Gọi $h, w$ lần lượt là chiều cao và chiều dài của ảnh $M$ ban đầu, ta có kích thước của ảnh sau khi xoay một góc $\alpha$ là:
+
+$$h' = w\sin(\alpha) + h\cos(\alpha)$$
+$$x' = w\cos(\alpha) + h\sin(\alpha)$$
+
+Ta hình dung bằng hình sau:
+
+> insert another image here
