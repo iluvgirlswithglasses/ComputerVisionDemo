@@ -159,17 +159,17 @@ $$y' = x\sin(\alpha) + y\cos(\alpha)$$
 
 $$x' = x\cos(\alpha) - y\sin(\alpha)$$
 
-Áp dụng phép tính ấy trên mọi điểm trong ảnh $M$, ta xoay được ảnh $M$ một góc $\alpha$.
+Áp dụng phép tính ấy trên mọi điểm trong ảnh $M$, ta xoay được ảnh $M$ một góc $\alpha$ theo chiều vòng tròn lượng giác.
+
+Source                      | After Rotation
+:-------------------------: | :-------------------------:
+![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-src.jpg) | ![pattern](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/affine-0.png)
 
 Lưu ý: Gọi $h, w$ lần lượt là chiều cao và chiều dài của ảnh $M$ ban đầu, ta có kích thước của ảnh sau khi xoay một góc $\alpha$ là:
 
 $$h' = w\sin(\alpha) + h\cos(\alpha)$$
 
 $$w' = w\cos(\alpha) + h\sin(\alpha)$$
-
-Ta hình dung bằng hình sau:
-
-> insert another image here
 
 Vậy, nếu văn bản ban đầu bị nghiêng một góc $\theta$, ta xoay ảnh một góc $-\theta$ để ảnh không bị nghiêng nữa. Sau đó, ta có thể cắt từng dòng ra rồi xử lý chúng riêng biệt với nhau.
 
@@ -190,6 +190,14 @@ Trong đó,
 - $r = \sqrt{(x - c_{x})^2 + (y - c_{y})^2}$
 
 Một lần nữa, ta có thể trích xuất các giá trị $K_{n}, P_{n}$ từ ma trận $Orient$ đã tính từ trước bằng các kỹ thuật [data mining](https://en.wikipedia.org/wiki/Data_mining).
+
+## 3.3. Kết luận
+
+Kết hợp ảnh đã phân vùng từ **Chương 2** và kỹ thuật của **Chương 3**, ta lại tiến thêm 1 bước trong quá trình tiền xử lý ảnh:
+
+Segmented Image            | Affine Rotation            | Distortion
+:-------------------------:|:-------------------------: | :-------------------------:
+![segment](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/affine-1.png) | ![rotate](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/affine-2.png) | ![distor](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/affine-3.png)
 
 # 4. Dựng lại các chữ cái
 
