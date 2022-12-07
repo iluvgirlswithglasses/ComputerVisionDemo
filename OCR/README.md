@@ -235,4 +235,4 @@ Chú thích:
 - Màu Đỏ: Điểm gấp khúc
 - Màu Xanh Dương: Điểm kết thúc
 
-Cuối cùng, ta ánh xạ *bộ khung* và *đặc trưng* đã tìm được vào cơ sở dữ liệu để tìm ra chữ cái có *bộ khung* và *đặc trưng* tương ứng. Khi đã ánh xạ toàn bộ các chữ cái, ta coi như đã ánh xạ toàn bộ văn bản từ dạng bitmap sang dạng plain text.
+Cuối cùng, ta ánh xạ *bộ khung* và *đặc trưng* đã tìm được vào cơ sở dữ liệu để tìm ra chữ cái có *bộ khung* và *đặc trưng* tương ứng. Khi đã ánh xạ toàn bộ các chữ cái có trong ảnh input, ta coi như đã ánh xạ toàn bộ văn bản từ dạng bitmap sang dạng plain text.
