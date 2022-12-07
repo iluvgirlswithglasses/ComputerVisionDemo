@@ -219,12 +219,18 @@ Sau khi dựng, ta được một ảnh nhị phân. Những vị trí được 
 
 Ta có thể tiếp tục đơn giản hóa các chữ cái bằng cách lấy khung của nó như sau:
 
-Unified                     | Skeletonization
-:-------------------------: | :-------------------------:
-![unify](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-2.png) | ![sket](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-3.png)
+Unified                     | Skeletonization             | Erase Short Branches
+:-------------------------: | :-------------------------: | :---------------------:
+![unify](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-2.png) | ![sket](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-3.png) | ![sket](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-4.png)
 
 Rồi rút đặc trưng của chữ cái từ khung đó:
 
 | Key points |
 | :--------: |
-| ![sket](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-4.png) |
+| ![sket](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-5.png) |
+
+Chú thích:
+
+- Màu Xanh Lá: Giao điểm giữa 3 nét
+- Màu Đỏ: Điểm gấp khúc
+- Màu Xanh Dương: Điểm kết thúc
