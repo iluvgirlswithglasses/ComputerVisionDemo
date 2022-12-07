@@ -97,7 +97,7 @@ $$\theta = \tan^{-1}\dfrac{|\overrightarrow{Gx}|}{|\overrightarrow{Gy}|}$$
 
 Có được góc biến thiên $\theta$ đồng nghĩa với việc có thêm dữ liệu để dựng lại các chữ cái bằng tổng các vector. Máy tính không thể dễ dàng nhận diện chữ cái từ bitmap, nhưng có thể dễ dàng nhận diện chúng dưới dạng vector. File *.pdf* thực chất cũng chỉ là tổng các vector, song máy tính vẫn có thể dễ dàng thêm/sửa/xóa/tìm kiếm nội dung trên file pdf.
 
-# 3. Xoay ảnh
+# 3. Biến đổi Affine
 
 ## 3.0. Nhận diện góc nghiêng
 
@@ -117,7 +117,7 @@ Ta có thể coi các giá trị $\theta$ đó là độ nghiêng so với trụ
 
 Tất nhiên, cách làm này có thể sẽ không hiệu quả đối với một số loại font chữ. Khi đó, ta có thể sử dụng *advanced sweepline techniques* (thuật toán đường quét) để tìm kiếm độ nghiêng của một hàng bất kỳ, từ đó suy ra độ nghiêng của văn bản. Tuy nhiên, cách làm này sẽ tương đối tốn kém thời gian hơn, chỉ nên được sử dụng nếu cách đầu tiên không hiệu quả.
 
-## 3.1. Affine Transformation
+## 3.1. Xoay ảnh
 
 Lấy trọng tâm của ảnh $M$ làm gốc tọa độ $O$, điểm $(y, x)$ là điểm có giá trị $Oy = y$, $Ox = x$ trong hệ trục tọa độ $Oxy$. Khi ta xoay ảnh $M$ một góc $\alpha$ quanh $O$, thì một điểm $(y, x)$ trong ảnh sẽ dịch chuyển đến vị trí mới $(y', x')$ được tính như sau:
 
@@ -139,10 +139,26 @@ Ta hình dung bằng hình sau:
 
 Vậy, nếu văn bản ban đầu bị nghiêng một góc $\theta$, ta xoay ảnh một góc $-\theta$ để ảnh không bị nghiêng nữa. Sau đó, ta có thể cắt từng dòng ra rồi xử lý chúng riêng biệt với nhau.
 
+## 3.2. Distortion 
+
+Sau khi xoay ảnh, văn bản vẫn có thể bị cong. Ta cũng có thể khắc phục điều này bằng Distortion với công thức sau:
+
+$$y' = y + (y - c_{y})(K_{1}r^2 + K_{2}r^4 + ...) + (2P_{1}(x - c_{x})(y - c_{y}) + P_{2}(r^2 + 2(y - c_{y})^2))(1 + P_{3}r^2 + P_{4}r^4)$$
+
 # 4. Dựng lại các chữ cái
+
+## 3.0. Binary Effect
 
 Tận dụng kết quả từ Edge Detection có được ban đầu, ta có thể dựng lại các chữ cái như sau:
 
 > insert two images here
 
-Nếu cố gắng dựng chữ cái trực tiếp từ ảnh ban đầu, ta sẽ gặp khó khăn 
+Cách dựng này tốt hơn việc dựng trực tiếp từ ảnh ban đầu, vì nó không bị phụ thuộc bởi màu sắc của nền hay chữ, cũng không bị ảnh hưởng nếu màu chữ không đều,... lấy ví dụ như các trường hợp sau:
+
+> insert multiple images here
+
+Sau khi dựng, ta được một ảnh nhị phân. Những vị trí được đánh số 1 (màu trắng) là chữ cái, còn những vị trí được đánh số 0 (màu đen) là nền.
+
+## 3.1. Skeletonization
+
+Để g
