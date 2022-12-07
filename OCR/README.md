@@ -195,7 +195,7 @@ Một lần nữa, ta có thể trích xuất các giá trị $K_{n}, P_{n}$ t�
 
 Kết hợp ảnh đã phân vùng từ **Chương 2** và kỹ thuật của **Chương 3**, ta lại tiến thêm 1 bước trong quá trình tiền xử lý ảnh:
 
-Segmented Image            | Affine Rotation (Last Row is Strait)    | Distortion
+Segmented Image            | Affine Rotation (Last Row is Straight)    | Distortion
 :-------------------------:|:-------------------------: | :-------------------------:
 ![segment](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/affine-1.png) | ![rotate](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/affine-2.png) | ![distor](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/affine-3.png)
 
