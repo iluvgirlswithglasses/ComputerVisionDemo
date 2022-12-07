@@ -137,8 +137,12 @@ Ta hình dung bằng hình sau:
 
 > insert another image here
 
-Vậy, nếu văn bản ban đầu bị nghiêng một góc $\theta$, ta xoay ảnh một góc $-\theta$ và tiến đến bước tiếp theo.
+Vậy, nếu văn bản ban đầu bị nghiêng một góc $\theta$, ta xoay ảnh một góc $-\theta$ để ảnh không bị nghiêng nữa. Sau đó, ta có thể cắt từng dòng ra rồi xử lý chúng riêng biệt với nhau.
 
-# 4. Tìm kích thước font chữ
+# 4. Dựng lại các chữ cái
 
-Vì văn bản lúc này đã không bị nghiêng nữa, ta có thể cắt từng dòng ra rồi xử lý chúng riêng biệt với nhau.
+Tận dụng kết quả từ Edge Detection có được ban đầu, ta có thể dựng lại các chữ cái như sau:
+
+> insert two images here
+
+Nếu cố gắng dựng chữ cái trực tiếp từ ảnh ban đầu, ta sẽ gặp khó khăn 
