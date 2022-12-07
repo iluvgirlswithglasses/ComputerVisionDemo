@@ -201,15 +201,17 @@ Segmented Image            | Affine Rotation (Last Row is Straight)    | Distort
 
 # 4. Dựng lại các chữ cái
 
+Sau quá trình tiền xử lý kể trên, ta có thể cắt ảnh ban đầu ra thành từng dòng và thực hiện xử lý trên từng dòng riêng lẻ. 
+
 ## 3.0. Binary Effect
 
-Tận dụng kết quả từ Edge Detection có được ban đầu, ta có thể dựng lại các chữ cái như sau:
+Với mỗi dòng, ta thực hiện Edge Detection đã được đề cập ở trên, rồi lại sử dụng những thuật toán phù hợp để lấy mặt chữ (ở đây, tác giả dùng thuật toán BFS, rồi lại dùng Dilation + Erosion Morphology)
 
-> insert two images here
+Source                     | Edge Detection             | Unify
+:-------------------------:|:-------------------------: | :-------------------------:
+![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-0.png) | ![ox-grad](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-1.png) | ![oy-grad](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-2.png)
 
-Cách dựng này tốt hơn việc dựng trực tiếp từ ảnh ban đầu, vì nó không bị phụ thuộc bởi màu sắc của nền hay chữ, cũng không bị ảnh hưởng nếu màu chữ không đều,... lấy ví dụ như các trường hợp sau:
-
-> insert multiple images here
+Cách dựng thông qua Edge Detection tốt hơn cách dựng trực tiếp từ ảnh ban đầu, vì nó không bị phụ thuộc bởi màu sắc của nền hay chữ, cũng không bị ảnh hưởng nếu màu chữ không đều.
 
 Sau khi dựng, ta được một ảnh nhị phân. Những vị trí được đánh số 1 (màu trắng) là chữ cái, còn những vị trí được đánh số 0 (màu đen) là nền.
 
