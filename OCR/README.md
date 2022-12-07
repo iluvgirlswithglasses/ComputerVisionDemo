@@ -154,7 +154,7 @@ Trong đó,
 - $y, x$ là vị trí ban đầu của pixel
 - $y', x'$ là vị trí của pixel ban đầu sau phép biến đổi
 - $c_{y}, c_{x}$ là trọng tâm của phép biến đổi
-- $K_{n}, P_{n}$ lần lượt là hệ số *radial distortion* và *tangential distortion*, được định nghĩa trong [bài viết này](https://ori.codes/artificial-intelligence/camera-calibration/camera-distortions/).
+- $K_{n}, P_{n}$ lần lượt là hệ số *radial distortion* và *tangential distortion*, được phổ cập trong [bài viết này](https://ori.codes/artificial-intelligence/camera-calibration/camera-distortions/).
 - $r = \sqrt{(x - c_{x})^2 + (y - c_{y})^2}$
 
 Một lần nữa, ta có thể trích xuất các giá trị $K_{n}, P_{n}$ từ ma trận $Orient$ đã tính từ trước bằng các kỹ thuật [data mining](https://en.wikipedia.org/wiki/Data_mining).
