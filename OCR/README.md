@@ -223,4 +223,8 @@ Unified                     | Skeletonization
 :-------------------------: | :-------------------------:
 ![unify](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-2.png) | ![sket](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-3.png)
 
-Với bấy nhiêu đây dữ liệu, ta có thể dễ dàng nhận diện chữ cái *insert abc xyz anything here*
+Rồi rút đặc trưng của chữ cái từ khung đó:
+
+| Key points |
+| :--------: |
+| ![sket](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-4.png) |
