@@ -111,7 +111,7 @@ Ta thấy: Nếu một ô vuông có giá trị $S$ lớn thì ô đó có sự 
 
 Block 0                    | Block 1                    | Block 2
 :-------------------------:|:-------------------------: | :-------------------------:
-![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/norm-0.png) | ![des](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/norm-1.png) | ![visual](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/norm-2.png)
+![block-0](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/norm-0.png) | ![block-1](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/norm-1.png) | ![block-2](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/norm-2.png)
 
 Sau khi tính $S$, ta có được $S$ của *Block 0* là lớn nhất, rồi đến *Block 1*, rồi bé nhất là *Block 2*.
 
@@ -120,6 +120,10 @@ Sau khi tính $S$, ta có được $S$ của *Block 0* là lớn nhất, rồi �
 ## 2.2. Vector hóa - Phần 1: Lấy góc của Vector
 
 Kernel được sử dụng trong phần **2.0** sẽ phát hiện sự biến thiên màu sắc theo chiều $Ox$. Nếu ta xoay nó một góc 90 độ, ta sẽ được một Kernel phát hiện sự biến thiên màu sắc theo chiều $Oy$.
+
+Source                     | Ox Gradient                | Oy Gradient
+:-------------------------:|:-------------------------: | :-------------------------:
+![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-src-2.jpg) | ![ox-grad](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-des-2.png) | ![oy-grad](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-des-y-2.png)
 
 Như vậy, tại một điểm $(i, j)$ trong ma trận, ta sẽ tính được 2 vector $\overrightarrow{Gx}, \overrightarrow{Gy}$ lần lượt là độ biến thiên màu sắc theo chiều $Ox$ và $Oy$ tại điểm đó. Sau đó, ta tính được là góc biến thiên tại $(i, j)$ là:
 
@@ -137,11 +141,11 @@ Gọi $M$ là ma trận biểu diễn ảnh ban đầu và $Orient$ là ma trậ
 
 $$Orient_{ij} = \theta_{M_{ij}}$$
 
-Bằng việc áp dụng các kỹ thuật [data mining](https://en.wikipedia.org/wiki/Data_mining), ta có thể rút ra một số quy luật giữa các góc $\theta$ với nhau. Trong hình ví dụ, ta có một số vị trí có giá trị $\theta$ gần giống nhau như sau:
+Bằng việc áp dụng các kỹ thuật [data mining](https://en.wikipedia.org/wiki/Data_mining), ta có thể rút ra một số quy luật giữa các góc $\theta$ với nhau. Lấy ví dụ trong hình *Oy Gradient*, ta có một số vị trí có giá trị $\theta$ gần giống nhau như sau:
 
-> insert image here
-
-> insert another image here
+Oy Gradient                 | Pattern
+:-------------------------: | :-------------------------:
+![oy-grad](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-des-y-2.png) | ![pattern](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/sobel-pattern.png)
 
 Ta có thể coi các giá trị $\theta$ đó là độ nghiêng so với trục hoành hoặc trục tung rồi tiến hành xoay ảnh.
 

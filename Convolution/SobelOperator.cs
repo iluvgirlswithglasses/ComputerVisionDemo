@@ -12,6 +12,12 @@ namespace ComputerVisionDemo.Convolution {
             { -1, 0, 1 }
         };
 
+        public static readonly double[,] Y_KERNEL = {
+            { -1, -2, -1 },
+            {  0,  0,  0 },
+            { +1, +2, +1 }
+        };
+
         public static Image<Gray, byte> Apply(Image<Gray, byte> src, double[,] kernel) {
             Image<Gray, byte> res = new(src.Size);
             int k = kernel.GetLength(0) >> 1;
