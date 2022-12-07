@@ -221,6 +221,6 @@ Ta có thể tiếp tục đơn giản hóa các chữ cái bằng cách lấy k
 
 Unified                     | Skeletonization
 :-------------------------: | :-------------------------:
-![src](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-3.png) | ![pattern](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-4.png)
+![unify](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-2.png) | ![sket](https://raw.githubusercontent.com/iluvgirlswithglasses/ComputerVisionDemo/main/sample-images/restruct-3.png)
 
 Với bấy nhiêu đây dữ liệu, ta có thể dễ dàng nhận diện chữ cái *insert abc xyz anything here*
